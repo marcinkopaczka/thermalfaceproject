@@ -33,22 +33,29 @@ http://www.menpo.org/installation/conda.html
 
 Get Miniconda in Python 3.6 (or newer if available) in 64 bit.
 
-When following the environment setup, use the following linse for environment creation instead of the one given in the installation instruction. This will get you a Python 3.5 environment; most of our code is in 3.5 for compatibiliy reasons with other libraries that we use (you MAY get everything running with the newest versions, but we won't be able to give any help if you use a different environment than we do):
+When following the environment setup, use the following linse for environment creation instead of the one given in the installation instruction. This will get you a Python 3.5 environment with some additional libraries; most of our code is in 3.5 for compatibiliy reasons with other libraries that we use (you MAY get everything running with the newest versions, but we won't be able to reproduce any of your issues if you use a different environment than we do):
 
 conda create -n thermalfaceproject python=3.5
+
 activate thermalfaceproject
+
 conda install -c menpo menpoproject menpo=0.7.7
-conda install skimage
+
+conda install -c conda-forge scikit-image
+
+pip install tqdm
+
+pip install joblib
 
 sometimes, skimage installation fails from Conda, get it from PIP then with pip install skimage.
 
-We strongly recommend you spend some time with Menpo as it offers a large number of excellent algorithms for face and landmark detection. Check out the menpo notebooks from github; make sure you get the notebooks for your menpo and menpofit version.
+We strongly recommend you spend some time with Menpo as it offers a large number of excellent algorithms for face and landmark detection. Check out the menpo notebooks from github; make sure you get the notebooks for your menpo and menpofit version. Get yourself familiarized with the different methods. In the notebooks, we will cover some basic usage; you may want to have a look at other fitting methdos such as  SDMs, CLMs an patch-based AAMs as they offer great performance too and outperform classic holistic AAMs as covered by our current papers in some aspects.
 
 NOTE: training the algorithms from scratch may need some time (basic face detectors and AAMs need like an hour on the database; some methods such as a VJ-detector or the DAN need days and may require a good GPU). You will need a decent machine; training a full feature-based AAM needs at least 64 GB of RAM, potentially more. We will provide pre-trained detectors as pickle files in the near future. These will be able to un on less powerful PCs.
 
 Once you have your database from us and your environment running, the fun starts:
 
 1.2 face detection
-1.3 facial landmafk detection and face tracking
+1.3 facial landmark detection and face tracking
 
 (uploading notebook in a few days)
